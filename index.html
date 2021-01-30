@@ -53,7 +53,7 @@
                 <div>
                     <label for="">First Class ($150)</label>
                     <!-- <input id="first-class-count" class="inp-style inp-width" type="number" name=""> -->
-                    <input id="first-class-count" type="text" class="form-control text-center" value="1">
+                    <input id="first-class-count" type="text" class="form-control text-center" value="0">
                 </div>
                 <div class="plus-minus-btn">
                     <!--<p><span id="firstClassIncrease">+</span> <span id="firstClassDecrease">-</span></p> -->
@@ -67,7 +67,7 @@
                 <div>
                     <label for="">Economy ($100)</label>
                     <!-- <input class="inp-style inp-width" type="number" name=""> -->
-                    <input id="economy-class-count" type="text" class="form-control text-center" value="1">
+                    <input id="economy-class-count" type="text" class="form-control text-center" value="0">
                 </div>
                 <div class="plus-minus-btn">
                     <!--<p> <span>+</span> <span>-</span> </p> -->
@@ -82,7 +82,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$<span id="total-cost">00</span></p>
+                        <p><span id="total-cost">00</span></p>
                     </div>
                 </div>
 
@@ -105,7 +105,9 @@
                 </div>
             </div>
             <button id="booking-confirmation" class="btn-style">Book Now</button>
-            <p id="confirmed"></p>
+            <p id="confirmed-1"></p>
+            <p id="confirmed-2"></p>
+            <p id="confirmed-3"></p>
         </div>
 
         <div class="booking-content">
@@ -161,7 +163,10 @@
         }
 
         const confirmedTicket = document.getElementById('booking-confirmation').addEventListener("click", function(){
-            document.getElementById("confirmed").innerHTML = "Your Ticket is Confirmed!";
+            document.getElementById("confirmed-1").innerHTML = "Your Ticket is Confirmed!";
+            document.getElementById("confirmed-2").innerHTML = "No. of Ticket Purchased"+"First Class =" + document.getElementById("first-class-count").value  + "," + "Economy Class = " + document.getElementById("economy-class-count").value 
+            document.getElementById("confirmed-3").innerHTML = "Total Cost =" + document.getElementById("total").innerText;
+            
         });
         
         //CAN USE THESE CODES IN CASE PROBLEM:
