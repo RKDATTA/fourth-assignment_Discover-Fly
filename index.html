@@ -57,8 +57,10 @@
                 </div>
                 <div class="plus-minus-btn">
                     <!--<p><span id="firstClassIncrease">+</span> <span id="firstClassDecrease">-</span></p> -->
-                    <button onclick="handleTicketChange('first', true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
-                    <button onclick="handleTicketChange('first', false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                    <button onclick="handleTicketChange('first', true)" class="btn btn-default"><i
+                            class="fas fa-plus"></i></button>
+                    <button onclick="handleTicketChange('first', false)" class="btn btn-default"><i
+                            class="fas fa-minus"></i></button>
                     <h6 id="first-class-total">$150</h6>
                 </div>
             </div>
@@ -71,8 +73,10 @@
                 </div>
                 <div class="plus-minus-btn">
                     <!--<p> <span>+</span> <span>-</span> </p> -->
-                    <button onclick="handleTicketChange('economy', true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
-                    <button onclick="handleTicketChange('economy', false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                    <button onclick="handleTicketChange('economy', true)" class="btn btn-default"><i
+                            class="fas fa-plus"></i></button>
+                    <button onclick="handleTicketChange('economy', false)" class="btn btn-default"><i
+                            class="fas fa-minus"></i></button>
                     <h6 id="economy-class-total">$100</h6>
                 </div>
             </div>
@@ -91,7 +95,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p id="vat-amount">$50</p>
+                        <p id="vat-amount">$0</p>
                     </div>
                 </div>
                 <hr>
@@ -100,14 +104,12 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p id="total">$550</p>
+                        <p id="total">$0</p>
                     </div>
                 </div>
             </div>
             <button id="booking-confirmation" class="btn-style">Book Now</button>
-            <p id="confirmed-1"></p>
-            <p id="confirmed-2"></p>
-            <p id="confirmed-3"></p>
+            
         </div>
 
         <div class="booking-content">
@@ -115,11 +117,19 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias
                 veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise
                 voluptatibus quam</p>
-        </div>
-        </section>
 
+                <div id="confirmation-note">
+                    <h5 id="confirmed-1"></h5>
+                    <p id="confirmed-2"></p>
+                    <p id="confirmed-3"></p>
+                </div>
+        </div>
+
+        
+        </section>
+        
         <script>
-        //COMBINE FOR FIRST/ECONOMY-CLASS
+            //COMBINE FOR FIRST/ECONOMY-CLASS
             function handleTicketChange(grade, isIncrease) {
                 const ticketInput = document.getElementById(grade + '-class-count');
                 const ticketCount = parseInt(ticketInput.value);
@@ -133,42 +143,45 @@
                 ticketInput.value = ticketNewCount;
                 // const economyClassTotal = economyClassNewCount * 100;
                 let ticketTotal = 0;
-                if(grade == 'economy'){
+                if (grade == 'economy') {
                     ticketTotal = ticketNewCount * 100;
                 }
-                if(grade == 'first'){
+                if (grade == 'first') {
                     ticketTotal = ticketNewCount * 150;
                 }
                 document.getElementById(grade + "-class-total").innerText = '$' + ticketTotal;
                 calculateTotal();
             }
 
-        function calculateTotal(){
-            const economyClassInput = document.getElementById('economy-class-count');
-            const economyClassCount = parseInt(economyClassInput.value);
+            function calculateTotal() {
+                const economyClassInput = document.getElementById('economy-class-count');
+                const economyClassCount = parseInt(economyClassInput.value);
 
-            const firstClassInput = document.getElementById('first-class-count');
-            const firstClassCount = parseInt(firstClassInput.value);
+                const firstClassInput = document.getElementById('first-class-count');
+                const firstClassCount = parseInt(firstClassInput.value);
 
-            const totalTicketCost = economyClassCount * 100 + firstClassCount * 150;
+                const totalTicketCost = economyClassCount * 100 + firstClassCount * 150;
 
-            document.getElementById('total-cost').innerText = '$' + totalTicketCost;
+                document.getElementById('total-cost').innerText = '$' + totalTicketCost;
 
-            const vat = totalTicketCost * 0.10;
-            document.getElementById('vat-amount').innerText = '$' + vat;
+                const vat = totalTicketCost * 0.10;
+                document.getElementById('vat-amount').innerText = '$' + vat;
 
-            const grandTotal = totalTicketCost + vat;
-            document.getElementById('total').innerText = '$' + grandTotal;
+                const grandTotal = totalTicketCost + vat;
+                document.getElementById('total').innerText = '$' + grandTotal;
 
-        }
+            }
 
-        const confirmedTicket = document.getElementById('booking-confirmation').addEventListener("click", function(){
-            document.getElementById("confirmed-1").innerHTML = "Your Ticket is Confirmed!";
-            document.getElementById("confirmed-2").innerHTML = "No. of Ticket Purchased"+"First Class =" + document.getElementById("first-class-count").value  + "," + "Economy Class = " + document.getElementById("economy-class-count").value 
-            document.getElementById("confirmed-3").innerHTML = "Total Cost =" + document.getElementById("total").innerText;
-            
-        });
-        
+            const confirmedTicket = document.getElementById('booking-confirmation').addEventListener("click", function () {
+                document.getElementById("confirmed-1").innerHTML = "Your Ticket is Confirmed!";
+                document.getElementById("confirmed-2").innerHTML = "No. of Ticket Purchased" + "First Class =" + document.getElementById("first-class-count").value + "," + "Economy Class = " + document.getElementById("economy-class-count").value
+                document.getElementById("confirmed-3").innerHTML = "Total Cost =" + document.getElementById("total").innerText;
+
+            });
+
+            const confirmationNote = document.getElementById("confirmation-note");
+            confirmationNote.style.display = "block";
+
         //CAN USE THESE CODES IN CASE PROBLEM:
         // FIRST-CLASS
         // function handleFirstClassTicketChange(isIncrease) {

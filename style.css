@@ -129,3 +129,12 @@ h6{
     background-color: yellow;
     font-size: 24px;
 }
+
+#confirmation-note{
+    display: none;
+    margin-top: 150px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px;
+    padding: 40px;
+
+}
