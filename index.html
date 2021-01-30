@@ -104,7 +104,8 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="booking-confirmation" class="btn-style">Book Now</button>
+            <p id="confirmed"></p>
         </div>
 
         <div class="booking-content">
@@ -158,6 +159,11 @@
             document.getElementById('total').innerText = '$' + grandTotal;
 
         }
+
+        const confirmedTicket = document.getElementById('booking-confirmation').addEventListener("click", function(){
+            document.getElementById("confirmed").innerHTML = "Your Ticket is Confirmed!";
+        });
+        
         //CAN USE THESE CODES IN CASE PROBLEM:
         // FIRST-CLASS
         // function handleFirstClassTicketChange(isIncrease) {
@@ -209,9 +215,6 @@
         //  const economyClassTotal = economyClassNewCount * 100;
         //  document.getElementById("economy-class-total").innerText = economyClassTotal;       
         // });
-
-
-
         </script>
         <!--Thank You-->
 </body>

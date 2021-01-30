@@ -120,3 +120,12 @@ nav ul li a:hover, a.active{
     display: flex;
     justify-content: space-between;
 }
+h6{
+    color : white;
+}
+
+#confirmed{
+    color :tomato;
+    background-color: yellow;
+    font-size: 24px;
+}
